@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 
 /**
- * Created by Кондратов on 06.06.2018.
+ * Created by РљРѕРЅРґСЂР°С‚РѕРІ on 06.06.2018.
  */
 public class FirstHomeWorkTest extends Assert {
     WebDriver driver;
@@ -33,20 +33,18 @@ public class FirstHomeWorkTest extends Assert {
         element = driver.findElement(By.xpath("//li[position()=6][@class='lg-menu__item']/span[@class='lg-menu__link']/span[@class='lg-menu__text']"));
         actions.moveToElement(element).build().perform();
         driver.findElement(By.xpath("//a[@href='/ru/person/bank_inshure/insuranceprogram/travel_and_shopping'][@class='lg-menu__sub-link']")).click();
-        assertEquals(driver.findElement(By.xpath("//h3[text()='Страхование путешественников']")).getText(), "Страхование путешественников");
+        assertEquals(driver.findElement(By.xpath("//h3[text()='РЎС‚СЂР°С…РѕРІР°РЅРёРµ РїСѓС‚РµС€РµСЃС‚РІРµРЅРЅРёРєРѕРІ']")).getText(), "РЎС‚СЂР°С…РѕРІР°РЅРёРµ РїСѓС‚РµС€РµСЃС‚РІРµРЅРЅРёРєРѕРІ");
         driver.findElement(By.xpath("//a[@href='https://online.sberbankins.ru/store/vzr/index.html#/viewCalc']")).click();
-        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());//Получение списка табов
-        driver.switchTo().window((String) tabs2.get(1));//Переключение на второй таб в браузере
-        //driver.switchTo().window((String) tabs2.get(0));//Переключение на первый таб в браузере
-        //driver.close();//Закрытие активного таба
+        ArrayList tabs2 = new ArrayList(driver.getWindowHandles());
+        driver.switchTo().window((String) tabs2.get(1));
         driver.findElement(By.xpath("//div[contains(text(),'35')]")).click();
         driver.findElement(By.xpath("//span[@class ='b-continue-btn']")).click();
         fillField(By.xpath("//input[@name='insured0_surname']"), "Menethil");
         fillField(By.xpath("//input[@name='insured0_name']"), "Arthas");
         fillField(By.xpath("//input[@name='insured0_birthDate']"), "22.06.1941");
-        fillField(By.xpath("//input[@name='surname']"), "Ветрокрылая");
-        fillField(By.xpath("//input[@name='name']"), "Сильвана");
-        fillField(By.xpath("//input[@name='middlename']"), "Петрович");
+        fillField(By.xpath("//input[@name='surname']"), "РРІР°РЅРѕРІР°");
+        fillField(By.xpath("//input[@name='name']"), "РРІР°РЅР°");
+        fillField(By.xpath("//input[@name='middlename']"), "РРІР°РЅРѕРІРёС‡");
         fillField(By.xpath("//input[@name='birthDate']"), "09.05.1945");
         driver.findElement(By.xpath("//input[@name='female']")).click();
         fillField(By.xpath("//input[@name='passport_series']"), "9999");
@@ -60,11 +58,11 @@ public class FirstHomeWorkTest extends Assert {
                 driver.findElement(By.xpath("//input[@name='insured0_name']")).getAttribute("value"));
         assertEquals("Menethil",
                 driver.findElement(By.xpath("//input[@name='insured0_surname']")).getAttribute("value"));
-        assertEquals("Ветрокрылая",
+        assertEquals("РРІР°РЅРѕРІР°",
                 driver.findElement(By.xpath("//input[@name='surname']")).getAttribute("value"));
-        assertEquals("Сильвана",
+        assertEquals("РРІР°РЅР°",
                 driver.findElement(By.xpath("//input[@name='name']")).getAttribute("value"));
-        assertEquals("Петрович",
+        assertEquals("РРІР°РЅРѕРІРёС‡",
                 driver.findElement(By.xpath("//input[@name='middlename']")).getAttribute("value"));
         assertEquals("09.05.1945",
                 driver.findElement(By.xpath("//input[@name='birthDate']")).getAttribute("value"));
@@ -75,7 +73,7 @@ public class FirstHomeWorkTest extends Assert {
         assertEquals("Azeroth WoW",
                 driver.findElement(By.xpath("//textarea[@name='issuePlace']")).getAttribute("value"));
         String text = driver.findElement(By.xpath("//div[@ng-show='tryNext && myForm.$invalid']")).getText();
-        assertEquals(text, "Заполнены не все обязательные поля");
+        assertEquals(text, "Р—Р°РїРѕР»РЅРµРЅС‹ РЅРµ РІСЃРµ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ");
     }
 
     @After
